@@ -1,0 +1,36 @@
+export interface Vehicle {
+  id: string;
+  name: string;
+  capacity: number;
+  driverWage: number; // THB per route
+  fuelCostPerKm: number; // THB per km
+  otherExpenses: number; // THB per route
+}
+
+export interface Node {
+  id: string;
+  name: string;
+  lat: number;
+  lng: number;
+  demand: number;
+  isDepot: boolean;
+  fixedSequence?: number;
+}
+
+export interface Route {
+  vehicleId: string;
+  capacity: number;
+  path: string[]; // Node IDs
+  distance: number;
+  load: number;
+  color: string;
+  fuelCost: number;
+  driverWage: number;
+  otherExpenses: number;
+  totalCost: number;
+}
+
+export interface VRPResult {
+  routes: Route[];
+  totalDistance: number;
+}
